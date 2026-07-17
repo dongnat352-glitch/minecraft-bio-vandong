@@ -10,27 +10,25 @@ st.set_page_config(
 )
 import streamlit as st
 
-# 1. Ẩn bằng CSS cho các thành phần thông thường
+# CSS này sẽ ẩn trực tiếp các thành phần của Streamlit bằng cách ép buộc hiển thị
 st.markdown("""
     <style>
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
+    /* Ẩn menu chính, header, footer */
+    #MainMenu {visibility: hidden !important;}
+    header {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
+    
+    /* Ẩn vương miện và nút quản lý bằng cách ẩn các container chứa nó */
     div[data-testid="stToolbar"] {visibility: hidden !important;}
     div[data-testid="stDecoration"] {display: none !important;}
+    div[data-testid="stStatusWidget"] {visibility: hidden !important;}
+    #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+    
+    /* Ẩn luôn biểu tượng vương miện cụ thể */
+    .viewerBadge_container__1QSob {display: none !important;}
+    .stAppToolbar {display: none !important;}
     </style>
     """, unsafe_allow_html=True)
-
-# 2. Dùng st.html mới để chạy JavaScript xóa vương miện hoàn toàn
-st.html("""
-    <script>
-    function removeBadges() {
-        const badges = parent.document.querySelectorAll('[class*="viewerBadge"], [data-testid="stManageAppButton"], iframe[title="manage-app"]');
-        badges.forEach(el => el.remove());
-    }
-    setInterval(removeBadges, 500);
-    </script>
-    """)
 # Tên file ảnh nền của bạn
 bg_image_path = "minecraft-deluxe-3840x2160-26243.jpg"
 
