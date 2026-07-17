@@ -10,22 +10,22 @@ st.set_page_config(
 )
 st.markdown("""
     <style>
+    /* Ẩn toàn bộ menu, header, footer mặc định */
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     div[data-testid="stToolbar"] {visibility: hidden !important;}
     div[data-testid="stDecoration"] {display: none !important;}
     
-    /* Xóa triệt để vương miện đỏ và nút 3 chấm trên mọi thiết bị */
-    [data-testid="stManageAppButton"], 
-    [data-testid="stConnectionStatus"],
-    iframe[src*="streamlit.io"],
-    .viewerBadge_link__1Su1F,
-    div[class*="viewerBadge"] {
+    /* Quét sạch tất cả các phần tử lạ nằm ngoài khung chứa nội dung chính */
+    #root ~ div, 
+    body > div:not(#root), 
+    [class*="viewerBadge"], 
+    [data-testid="stManageAppButton"] {
         display: none !important;
         visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
     }
     </style>
     """, unsafe_allow_html=True)
