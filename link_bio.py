@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon="🧱",
     layout="centered"
 )
-import streamlit.components.v1 as components
+import streamlit as st
 
 # 1. Ẩn bằng CSS cho các thành phần thông thường
 st.markdown("""
@@ -21,18 +21,16 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 2. Dùng JavaScript để ép xóa vương miện và nút 3 chấm
-components.html("""
+# 2. Dùng st.html mới để chạy JavaScript xóa vương miện hoàn toàn
+st.html("""
     <script>
     function removeBadges() {
-        // Tìm và xóa mọi thẻ chứa vương miện hoặc iframe quản lý app
         const badges = parent.document.querySelectorAll('[class*="viewerBadge"], [data-testid="stManageAppButton"], iframe[title="manage-app"]');
         badges.forEach(el => el.remove());
     }
-    // Chạy liên tục mỗi 0.5 giây để đảm bảo Streamlit vừa hiện ra là bị xóa ngay
     setInterval(removeBadges, 500);
     </script>
-    """, height=0)
+    """)
 # Tên file ảnh nền của bạn
 bg_image_path = "minecraft-deluxe-3840x2160-26243.jpg"
 
