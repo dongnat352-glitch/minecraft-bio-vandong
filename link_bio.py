@@ -8,7 +8,15 @@ st.set_page_config(
     page_icon="🧱",
     layout="centered"
 )
-
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    div[data-testid="stToolbar"] {visibility: hidden !important;}
+    div[data-testid="stDecoration"] {display: none !important;}
+    </style>
+    """, unsafe_allow_html=True)
 # Tên file ảnh nền của bạn
 bg_image_path = "minecraft-deluxe-3840x2160-26243.jpg"
 
