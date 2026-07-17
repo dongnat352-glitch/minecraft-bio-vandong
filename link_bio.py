@@ -15,15 +15,6 @@ st.markdown("""
     footer {visibility: hidden;}
     div[data-testid="stToolbar"] {visibility: hidden !important;}
     div[data-testid="stDecoration"] {display: none !important;}
-    </style>
-    """, unsafe_allow_html=True)
-st.markdown("""
-    <style>
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    div[data-testid="stToolbar"] {visibility: hidden !important;}
-    div[data-testid="stDecoration"] {display: none !important;}
     
     /* Xóa triệt để vương miện đỏ và nút 3 chấm trên mọi thiết bị */
     [data-testid="stManageAppButton"], 
