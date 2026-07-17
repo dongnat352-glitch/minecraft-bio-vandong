@@ -24,6 +24,14 @@ st.markdown("""
     footer {visibility: hidden;}
     div[data-testid="stToolbar"] {visibility: hidden !important;}
     div[data-testid="stDecoration"] {display: none !important;}
+    
+    /* Đoạn code xóa hoàn toàn vương miện đỏ và menu ba chấm bên dưới */
+    .viewerBadge_container__1QS13, [data-testid="stConnectionStatus"], iframe[title="manage-app"] {
+        display: none !important;
+    }
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > a {
+        display: none !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 # Tên file ảnh nền của bạn
